@@ -13,7 +13,6 @@ import {
   getComplianceReport,
 } from '../../api/adminApi';
 
-/* ── Palette ── */
 const C = {
   teal:   '#00897b',
   tealLt: '#e0f2f1',
@@ -49,7 +48,6 @@ const KPI = ({ label, value, sub, color = C.teal, icon }) => (
   </div>
 );
 
-/* ── Section wrapper ── */
 const Section = ({ title, icon, color = C.teal, children }) => (
   <div className="card border-0 shadow-sm mb-4" style={{ borderRadius: 16, overflow: 'hidden' }}>
     <div className="d-flex align-items-center gap-2 px-4 py-3" style={{ borderBottom: '1px solid #f0f4f2', background: '#fafcfb' }}>
@@ -63,7 +61,6 @@ const Section = ({ title, icon, color = C.teal, children }) => (
   </div>
 );
 
-/* ── Rate bar ── */
 const RateBar = ({ label, value, color }) => (
   <div className="mb-2">
     <div className="d-flex justify-content-between mb-1">
@@ -162,10 +159,6 @@ const AdminReports = () => {
           <i className="fas fa-shield-alt me-1" /> Admin View
         </span>
       </div>
-
-      {/* ══════════════════════════════════════════
-          1. JOB APPLICATIONS
-      ══════════════════════════════════════════ */}
       <Section title="Job Applications" icon="fa-inbox" color={C.teal}>
         <div className="row g-3 mb-4">
           <KPI label="Total"     value={fmt(ja.totalApplications)} icon="fa-layer-group"  color={C.teal}  sub="All applications" />
@@ -198,9 +191,6 @@ const AdminReports = () => {
         </div>
       </Section>
 
-      {/* ══════════════════════════════════════════
-          2. PLACEMENTS
-      ══════════════════════════════════════════ */}
       <Section title="Placements" icon="fa-handshake" color={C.green}>
         <div className="row g-3 mb-4">
           <KPI label="Total"     value={fmt(pl.totalPlacements)}      icon="fa-layer-group"  color={C.teal}  sub="All placements" />
@@ -228,9 +218,6 @@ const AdminReports = () => {
         </div>
       </Section>
 
-      {/* ══════════════════════════════════════════
-          3. TRAINING
-      ══════════════════════════════════════════ */}
       <Section title="Training Programs" icon="fa-graduation-cap" color={C.blue}>
         <div className="row g-3 mb-4">
           <KPI label="Programs"    value={fmt(tr.totalPrograms)}        icon="fa-book"         color={C.blue}   sub="Total programs" />
@@ -252,10 +239,6 @@ const AdminReports = () => {
           </ResponsiveContainer>
         </div>
       </Section>
-
-      {/* ══════════════════════════════════════════
-          4. EMPLOYERS + COMPLIANCE  (side by side)
-      ══════════════════════════════════════════ */}
       <div className="row g-4">
         <div className="col-md-6">
           <Section title="Employers" icon="fa-building" color={C.purple}>
